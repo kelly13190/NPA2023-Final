@@ -8,8 +8,8 @@ api_url = "https://10.0.15.189/restconf/"
 # the RESTCONF HTTP headers, including the Accept and Content-Type
 # Two YANG data formats (JSON and XML) work with RESTCONF 
 headers = {
-    "Accept": "application/yang-data-json",
-    "Content-Type": "application/yang-data-json"
+    "Accept": "application/yang-data+json",
+    "Content-Type": "application/yang-data+json"
 }
 
 basicauth = ("admin", "cisco")
@@ -21,11 +21,11 @@ def create():
             "name": "Loopback65070224",
             "description": "Created by RESTCONF",
             "type": "iana-if-type:softwareLoopback",
-            "enabled": true,
+            "enabled": True,
             "ietf-ip:ipv4": {
                 "address": [
                     {
-                        "ip": "172.30.224.1,
+                        "ip": "172.30.224.1",
                         "netmask": "255.255.255.0"
                     }
                 ]
@@ -72,7 +72,7 @@ def delete():
 def enable():
     yangConfig = yangConfig = {
         "ietf-interfaces:interface": {
-            "enabled": true
+            "enabled": True
         }
     }
 
@@ -96,7 +96,7 @@ def enable():
 def disable():
     yangConfig = {
         "ietf-interfaces:interface": {
-            "enabled": false
+            "enabled": False
         }
     }
 
