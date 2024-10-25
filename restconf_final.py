@@ -2,8 +2,8 @@ import json
 import requests
 requests.packages.urllib3.disable_warnings()
 
-# Router IP Address is 10.0.15.189
-api_url = "https://10.0.15.189/restconf/"
+# Router IP Address is 10.0.15.181-184
+api_url = "https://10.0.15.184/restconf/"
 
 # the RESTCONF HTTP headers, including the Accept and Content-Type
 # Two YANG data formats (JSON and XML) work with RESTCONF 
@@ -32,7 +32,7 @@ def create():
             },
             "ietf-ip:ipv6": {}
         }
-    }
+    } 
 
     resp = requests.put(
         api_url + "data/ietf-interfaces:interfaces/interface=Loopback65070224", 
@@ -70,7 +70,7 @@ def delete():
 
 
 def enable():
-    yangConfig = yangConfig = {
+    yangConfig = {
         "ietf-interfaces:interface": {
             "enabled": True
         }
@@ -118,7 +118,7 @@ def disable():
 
 
 def status():
-    api_url_status = "https://10.0.15.189/restconf/data/ietf-interfaces:interfaces-state/interface=Loopback65070224"
+    api_url_status = "https://10.0.15.184/restconf/data/ietf-interfaces:interfaces-state/interface=Loopback65070224"
 
     resp = requests.get(
         api_url_status, 
